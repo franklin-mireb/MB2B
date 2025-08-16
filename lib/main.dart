@@ -16,7 +16,6 @@ class MirebApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
         scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-        fontFamily: 'Roboto',
       ),
       initialRoute: '/',
       routes: {
