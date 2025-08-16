@@ -5,6 +5,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Raison du déclenchement manuel'
+        required: false
+        default: 'manual run'
 
 jobs:
   build:
@@ -54,6 +60,8 @@ jobs:
 
   deploy:
     needs: build
+    # Ne déploie pas sur les événements pull_request
+    if: ${{ github.event_name != 'pull_request' }}
     runs-on: ubuntu-latest
     permissions:
       pages: write
